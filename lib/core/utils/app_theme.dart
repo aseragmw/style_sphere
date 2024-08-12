@@ -5,19 +5,12 @@ import 'package:style_sphere/core/extentions/screen_size.dart';
 
 class AppTheme {
   //Colors
-  static const Color primaryBlueColor = Color(0xff377DFF);
-    static const Color whiteColor = Color(0xffffffff);
+  static const Color redColor = Color(0xFFDB3022);
+  static const Color lightRedColor = Color(0xFFF01F0E);
+  static const Color whiteColor = Color(0xffffffff);
+  static const Color blackColor = Color(0xFF222222);
 
-  static const Color primaryColor = Color(0xFF3686FF);
-  static const Color blackColor = Color(0xff243443);
-  static const Color lightBlackColor = Color(0xff2E3032);
-  static const Color greyOneColor = Color(0xffF2F4F6);
-  static const Color greyTwoColor = Color(0xffAAB0B7);
-  static const Color fillColor = Color(0xffF9F9F9);
-  static const Color redColor = Color(0xffE0144C);
-  static const Color greenColor = Color(0xff50CD89);
-  static const Color greyHintColor = Color(0xFFB4B3B3);
-
+  static const Color screenBackgroundColor = Color.fromARGB(255, 241, 241, 241);
 
   //Font Sizes
   static double fontSize12(BuildContext context) => 12 * context.screenAspectRatio * 0.5;

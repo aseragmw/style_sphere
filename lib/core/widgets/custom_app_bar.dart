@@ -1,36 +1,32 @@
 import 'package:flutter/material.dart';
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final Decoration? boxDecoration;
-  final bool showBackButton;
+class CustomAppBar extends StatelessWidget {
+  final String? title;
+  final bool? showBackCursor;
+  final Widget? trailingWidget;
 
-  const CustomAppBar({
-    super.key,
-    this.boxDecoration,
-    this.showBackButton = false,
-  });
+  const CustomAppBar({super.key, this.title, this.showBackCursor, this.trailingWidget});
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: AppBar(
-        leading: showBackButton
-            ? IconButton(
-                padding: const EdgeInsetsDirectional.only(start: 24.0),
-                icon: const Icon(Icons.arrow_back_ios),
-                onPressed: () {
-                  Navigator.pop(context);
-                })
-            : null,
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        automaticallyImplyLeading: false,
-        centerTitle: true,
-        title: SvgPicture.asset("assets/icons/logo.svg"),
-      ),
+    return Stack(
+      children: [
+         Container(
+          child: Center(
+            child: Text(title ?? ""),
+          ),
+        ),
+        Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            showBackCursor!=null ? showBackCursor!?InkWell(child: Icon(Icons.arrow_back_ios_new) ,onTap: () {
+              Navigator.of(context).pop();
+            },):const SizedBox():const SizedBox(),
+          trailingWidget??const SizedBox(),
+          ],
+        )
+      ],
     );
   }
-
-  @override
-  Size get preferredSize => const Size.fromHeight(56);
 }
